@@ -1,11 +1,9 @@
 /**
  * Created by david-maser on 28/10/15.
+ * requires jQuery
  */
 (function ( $ ) {
-
     $.fn.filterize = function( options ) {
-
-        // This is the easiest way to have default options.
         var settings = $.extend({
             // These are the defaults.
             blur: null,
@@ -39,38 +37,18 @@
                 pref = '-moz-';
             }
 
-        console.log(options);
         // filterize the collection based on the settings variable.
-        if(settings.blur !== null){
-            pool += "blur("+settings.blur+"px) ";
-        }
-        if(settings.brightness !== null){
-            pool += "brightness("+settings.brightness+") ";
-        }
-        if(settings.contrast !== null){
-            pool += "contrast("+settings.contrast+") ";
-        }
-        if(settings.dropShadow !== null){
-            pool += "drop-shadow("+settings.dropShadow+") ";
-        }
-        if(settings.grayscale !== null){
-            pool += "grayscale("+settings.grayscale+") ";
-        }
-        if(settings.hueRotate !== null){
-            pool += "hue-rotate("+settings.hueRotate+"deg) ";
-        }
-        if(settings.invert !== null){
-            pool += "invert("+settings.invert+") ";
-        }
-        if(settings.opacity !== null){
-            pool += "opacity("+settings.opacity+") ";
-        }
-        if(settings.saturate !== null){
-            pool += "saturate("+settings.saturate+") ";
-        }
-        if(settings.sepia !== null){
-            pool += "sepia("+settings.sepia+") ";
-        }
+            pool += settings.blur !== null ? "blur("+settings.blur+"px) " : "";
+            pool += settings.brightness !== null ? "brightness("+settings.brightness+") " : "";
+            pool += settings.contrast !== null ? "contrast("+settings.contrast+") " : "";
+            pool += settings.dropShadow !== null ? "drop-shadow("+settings.dropShadow+") " : "";
+            pool += settings.grayscale !== null ? "grayscale("+settings.grayscale+") " : "";
+            pool += settings.hueRotate !== null ? "hue-rotate("+settings.hueRotate+"deg) " : "";
+            pool += settings.invert !== null ? "invert("+settings.invert+") " : "";
+            pool += settings.opacity !== null ? "opacity("+settings.opacity+") " : "";
+            pool += settings.saturate !== null ? "saturate("+settings.saturate+") " : "";
+            pool += settings.sepia !== null ? "sepia("+settings.sepia+") " : "";
+
         if(settings.mode == 'style') {
             return this.css({
                 "filter": pool,
