@@ -17,26 +17,26 @@
             saturate: null,
             sepia: null,
             transition:1,
-            mode:null
+            mode:"style"
         }, options),
             r = navigator,
             pool = '',
             pref = '',
             nav = r.appName,
             prod = r.product;
-
-        var isOpera = !!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0,
-            isFirefox = typeof InstallTrigger !== 'undefined',
-            isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0,
-            isChrome = !!window.chrome && !isOpera,
-            isIE = /*@cc_on!@*/false || !!document.documentMode;
-
-            if(isChrome == true || isSafari == true) {
-                pref = '-webkit-';
-            }else if(isFirefox == true) {
-                pref = '-moz-';
-            }
-
+        if(!!window.opera || navigator.userAgent.indexOf(' OPR/') >= 0){
+            nav = 'op';
+        }else if(typeof InstallTrigger !== 'undefined'){
+            nav = 'ff';
+        }else if(Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0){
+            nav = 'sa';
+        }else if(!!window.chrome && !isOpera){
+            nav = 'ch';
+        }else if(/*@cc_on!@*/false || !!document.documentMode){
+            nav = 'ie';
+        }else{
+            nav = null;
+        }
         // filterize the collection based on the settings variable.
             pool += settings.blur !== null ? "blur("+settings.blur+"px) " : "";
             pool += settings.brightness !== null ? "brightness("+settings.brightness+") " : "";
@@ -48,7 +48,6 @@
             pool += settings.opacity !== null ? "opacity("+settings.opacity+") " : "";
             pool += settings.saturate !== null ? "saturate("+settings.saturate+") " : "";
             pool += settings.sepia !== null ? "sepia("+settings.sepia+") " : "";
-
         if(settings.mode == 'style') {
             return this.css({
                 "filter": pool,
@@ -66,11 +65,20 @@
                 $(this).attr('style','').css('transition',settings.transition+"s");
             });
             return this.css('transition',settings.transition+"s");
+        }else if(settings.mode == 'click'){
+            $(this).on('click',function(){
+                $(this).css({
+                    "filter": pool,
+                    "-webkit-filter": pool,
+                    "-moz-filter": pool,
+                    "-o-filter":pool,
+                    "-ms-filter":pool
+                });
+            });
+            return this.css('transition',settings.transition+"s");
         }
     };
-
 }( jQuery ));
-
 /**
  usage
  $( "div" ).filterize({
