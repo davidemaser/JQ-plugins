@@ -30,7 +30,7 @@
             nav = 'ff';
         }else if(Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0){
             nav = 'sa';
-        }else if(!!window.chrome && !isOpera){
+        }else if(!!window.chrome && !window.opera){
             nav = 'ch';
         }else if(/*@cc_on!@*/false || !!document.documentMode){
             nav = 'ie';
@@ -52,14 +52,18 @@
             return this.css({
                 "filter": pool,
                 "-webkit-filter": pool,
-                "-moz-filter": pool
+                "-moz-filter": pool,
+                "-o-filter":pool,
+                "-ms-filter":pool
             });
         }else if(settings.mode == 'hover'){
             $(this).on('mouseover',function(){
                 $(this).css({
                     "filter": pool,
                     "-webkit-filter": pool,
-                    "-moz-filter": pool
+                    "-moz-filter": pool,
+                    "-o-filter":pool,
+                    "-ms-filter":pool
                 });
             }).on('mouseout',function(){
                 $(this).attr('style','').css('transition',settings.transition+"s");
