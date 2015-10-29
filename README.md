@@ -20,9 +20,9 @@ A plugin that lets you apply different css filters to page elements. Filters can
 
 - Drop Shadow : Applies a drop shadow effect to the element. A drop shadow is effectively a blurred, offset version of the input elements alpha mask drawn in a particular color, composited below the image. The function accepts a parameter of type (defined in CSS3 Backgrounds), with the exception that the ‘inset’ keyword is not allowed.
 
-This function is similar to the more established box-shadow property; the difference is that with filters, some browsers provide hardware acceleration for better performance.
+> This function is similar to the more established box-shadow property; the difference is that with filters, some browsers provide hardware acceleration for better performance.
 
-Use the value 16px 16px 10px rgba(0,0,0,1)
+> Use the value 16px 16px 10px rgba(0,0,0,1)
 
 - Gray Scale : Converts the element to grayscale. The value of “amount” defines the proportion of the conversion. A value of 100% is completely grayscale. A value of 0% leaves the input unchanged. Values between 0% and 100% are linear multipliers on the effect. If the “amount” parameter is missing, a value of 100% is used. Negative values are not allowed.
 
@@ -34,7 +34,7 @@ Use the value 16px 16px 10px rgba(0,0,0,1)
 
 - Saturate : Saturates the element. The value of “amount” defines the proportion of the conversion. A value of 0% is completely un-saturated. A value of 100% leaves the input unchanged. Other values are linear multipliers on the effect. Values of amount over 100% are allowed, providing super-saturated results. If the “amount” parameter is missing, a value of 100% is used. Negative values are not allowed.
 
--Sepia : Converts the element to sepia. The value of “amount” defines the proportion of the conversion. A value of 100% is completely sepia. A value of 0 leaves the input unchanged. Values between 0% and 100% are linear multipliers on the effect. If the “amount” parameter is missing, a value of 100% is used. Negative values are not allowed.
+- Sepia : Converts the element to sepia. The value of “amount” defines the proportion of the conversion. A value of 100% is completely sepia. A value of 0 leaves the input unchanged. Values between 0% and 100% are linear multipliers on the effect. If the “amount” parameter is missing, a value of 100% is used. Negative values are not allowed.
 
 #### Calling The Function
 ``````javascript
