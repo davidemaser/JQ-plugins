@@ -43,4 +43,5 @@ $("element").filterize({
     brightness:2,
     sepia:1
  });
- 
+ ``````
+Sorry for not commiting more plugins to this page but I have had no time to do so. I'll waterdrop a few new projects as they come.
