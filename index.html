@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>JQ PLUGINS by davidemaser</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">JQ PLUGINS</h1>
+      <h2 class="project-tagline">jQuery plugins</h2>
+      <a href="https://github.com/davidemaser/JQ-plugins" class="btn">View on GitHub</a>
+      <a href="https://github.com/davidemaser/JQ-plugins/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/davidemaser/JQ-plugins/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <p>A repository of assorted jQuery plugins I've created. Take a look at the annotations in each plugin
+to check usage.</p>
+
+<h3>
+<a id="dmfilters" class="anchor" href="#dmfilters" aria-hidden="true"><span class="octicon octicon-link"></span></a>dmFilters</h3>
+
+<p>A plugin that lets you apply different css filters to page elements. Filters can be applied to an element or bound to an event handler.</p>
+
+<h4>
+<a id="options" class="anchor" href="#options" aria-hidden="true"><span class="octicon octicon-link"></span></a>Options</h4>
+
+<ul>
+<li><p>Mode : Can be either 'style', 'click', or 'hover'. The style option applies the filters to a page element on load. The click option binds the style to the click handler of the parent item. The hover option binds the style to the mouseover handler of the parent item. The default mode is 'style'.</p></li>
+<li><p>Transition : This is the transition delay applied to the parent element. It can be numeric in the format 0.5. Do not add the s.
+Jq-plugins</p></li>
+<li><p>Blur : Applies a Gaussian blur to the element. The value of ‘radius’ defines the value of the standard deviation to the Gaussian function, or how many pixels on the screen blend into each other, so a larger value will create more blur. If no parameter is provided, then a value 0 is used. The parameter is specified as a CSS length, but does not accept percentage values.</p></li>
+<li><p>Brightness : Applies a linear multiplier to the element, making it appear more or less bright. A value of 0% will create an image that is completely black. A value of 100% leaves the input unchanged. Other values are linear multipliers on the effect. Values of an amount over 100% are allowed, providing brighter results. If the "amount" parameter is missing, a value of 100% is used. It can be numeric without the percentage symbol.</p></li>
+<li><p>Contrast : Adjusts the contrast of the element. A value of 0% will create an image that is completely black. A value of 100% leaves the input unchanged. Values of amount over 100% are allowed, providing results with less contrast. It can be numeric without the percentage symbol.</p></li>
+<li><p>Drop Shadow : Applies a drop shadow effect to the element. A drop shadow is effectively a blurred, offset version of the input elements alpha mask drawn in a particular color, composited below the image. The function accepts a parameter of type (defined in CSS3 Backgrounds), with the exception that the ‘inset’ keyword is not allowed.</p></li>
+</ul>
+
+<blockquote>
+<p>This function is similar to the more established box-shadow property; the difference is that with filters, some browsers provide hardware acceleration for better performance.</p>
+
+<p>Use the value 16px 16px 10px rgba(0,0,0,1)</p>
+</blockquote>
+
+<ul>
+<li><p>Gray Scale : Converts the element to grayscale. The value of “amount” defines the proportion of the conversion. A value of 100% is completely grayscale. A value of 0% leaves the input unchanged. Values between 0% and 100% are linear multipliers on the effect. If the “amount” parameter is missing, a value of 100% is used. Negative values are not allowed.</p></li>
+<li><p>Hue Rotate : Applies a hue rotation on the element. The value of “angle” defines the number of degrees around the color circle the input samples will be adjusted. A value of 0deg leaves the input unchanged. If the “angle” parameter is missing, a value of 0deg is used. Maximum value is 360deg. It can be numeric without the DEG.</p></li>
+<li><p>Invert : Inverts the samples in the element. The value of “amount” defines the proportion of the conversion. A value of 100% is completely inverted. A value of 0% leaves the input unchanged. Values between 0% and 100% are linear multipliers on the effect. If the “amount” parameter is missing, a value of 100% is used. Negative values are not allowed.</p></li>
+<li><p>Opacity : Applies transparency to the element. The value of “amount” defines the proportion of the conversion. A value of 0% is completely transparent. A value of 100% leaves the input unchanged. Values between 0% and 100% are linear multipliers on the effect. This is equivalent to multiplying the input image samples by amount. If the “amount” parameter is missing, a value of 100% is used. This function is similar to the more established opacity property; the difference is that with filters, some browsers provide hardware acceleration for better performance. Negative values are not allowed.</p></li>
+<li><p>Saturate : Saturates the element. The value of “amount” defines the proportion of the conversion. A value of 0% is completely un-saturated. A value of 100% leaves the input unchanged. Other values are linear multipliers on the effect. Values of amount over 100% are allowed, providing super-saturated results. If the “amount” parameter is missing, a value of 100% is used. Negative values are not allowed.</p></li>
+<li><p>Sepia : Converts the element to sepia. The value of “amount” defines the proportion of the conversion. A value of 100% is completely sepia. A value of 0 leaves the input unchanged. Values between 0% and 100% are linear multipliers on the effect. If the “amount” parameter is missing, a value of 100% is used. Negative values are not allowed.</p></li>
+</ul>
+
+<h4>
+<a id="calling-the-function" class="anchor" href="#calling-the-function" aria-hidden="true"><span class="octicon octicon-link"></span></a>Calling The Function</h4>
+
+<div class="highlight highlight-source-js"><pre><span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">"</span>element<span class="pl-pds">"</span></span>).<span class="pl-en">filterize</span>({
+    blur<span class="pl-k">:</span><span class="pl-c1">2</span>,
+    brightness<span class="pl-k">:</span><span class="pl-c1">2</span>,
+    sepia<span class="pl-k">:</span><span class="pl-c1">1</span>
+ });
+</pre></div>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/davidemaser/JQ-plugins">JQ PLUGINS</a> is maintained by <a href="https://github.com/davidemaser">davidemaser</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
